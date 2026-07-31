@@ -1,0 +1,11 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+python-dotenv
+PyMySQL
+flask-login
+reportlab
+pandas
+openpyxl
+fpdf2
+cryptography
