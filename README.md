@@ -66,17 +66,17 @@
 <td width="33%" valign="top">
 
 ### 📊 Reports & Backups
-- PDF report generation (ReportLab/fpdf2)[cite: 2]
-- Excel data exports (pandas/openpyxl)[cite: 2]
-- Automated database backups[cite: 2]
-- Backup log audit history[cite: 2]
-- REST API for attendance & CIE data[cite: 2]
+- PDF report generation (ReportLab/fpdf2)
+- Excel data exports (pandas/openpyxl)
+- Automated database backups
+- Backup log audit history
+- REST API for attendance & CIE data
 
 </td>
 </tr>
 </table>
 
-> 🔑 Access is enforced per Flask blueprint — `/admin`, `/hod`, `/staff`, and `/auth` routes are each guarded by role-based checks[cite: 2].
+> 🔑 Access is enforced per Flask blueprint — `/admin`, `/hod`, `/staff`, and `/auth` routes are each guarded by role-based checks.
 
 ## 🛠️ Technology Stack
 
@@ -86,9 +86,9 @@
 
 </div>
 
-**Backend & Security:** Python 3.11 · Flask · Flask-Login · Cryptography[cite: 2]
-**ORM & Database:** Flask-SQLAlchemy · Flask-Migrate (Alembic) · MySQL (PyMySQL)[cite: 2]
-**Reporting & Templating:** ReportLab · fpdf2 · pandas · openpyxl · Jinja2[cite: 2]
+**Backend & Security:** Python 3.11 · Flask · Flask-Login · Cryptography
+**ORM & Database:** Flask-SQLAlchemy · Flask-Migrate (Alembic) · MySQL (PyMySQL)
+**Reporting & Templating:** ReportLab · fpdf2 · pandas · openpyxl · Jinja2
 
 ## 🏗️ Architecture & Workflow
 
@@ -109,3 +109,24 @@ flowchart TD
     style B fill:#1a1440,stroke:#ff4d6d,color:#ffffff
     style G fill:#0f0c29,stroke:#2cb67d,color:#ffffff
     style F fill:#1a1440,stroke:#7f5af0,color:#ffffff
+
+Request flow: Requests flow through Flask blueprints scoped to a role. Routes call into the services layer for business logic, which operates on SQLAlchemy models. MySQL handles persistence, and Jinja2 renders role-appropriate templates.🚀 Installation & Setup1️⃣ Clone the RepositoryBashgit clone [https://github.com/YOUR_USERNAME/CMS.git](https://github.com/YOUR_USERNAME/CMS.git)
+2️⃣ Navigate & Install DependenciesBashcd CMS
+pip install -r requirements.txt
+3️⃣ Configure Environment & DatabaseCreate a MySQL database named academic_data_management. Update your .env or config/config.py:PythonSQLALCHEMY_DATABASE_URI = "mysql+pymysql://YOUR_DB_USER:YOUR_DB_PASS@localhost/academic_data_management"
+4️⃣ Run Migrations & Start AppBashflask db upgrade
+flask run
+5️⃣ Open Applicationhttp://localhost:5000
+👤 Log in with your configured role credentials (Admin, HOD, or Staff) to access respective portal features.📂 Project StructureCMS/
+├── api/                 → REST endpoints: attendance, CIE, backup, reports
+├── config/              → config.py (DB URI, upload/backup folders)
+├── models/              → SQLAlchemy models (User, Student, CIE, Attendance, etc.)
+├── routes/              → Blueprints (auth, admin, hod, staff)
+├── services/            → Business logic (auth, CIE, report, backup services)
+├── templates/           → Jinja2 HTML templates
+├── backups/             → Database & export backups
+├── extensions.py        → db, login_manager initialization
+├── app.py               → Flask application factory & entry point
+├── database_schema.txt
+└── README.md
+🧩 Domain Model & Status FlowsModuleCore ModelsUsers & SecurityUser · Role · Control · MaintenanceModeAcademic HierarchyStudent · Batch · Branch · Class · Subject · StaffAllocationEvaluations & LogsAttendance · CIEConfig · CIEPapers · CIEMarks · BackupLogCore models encompass user authentication, multi-branch student academic structuring, evaluation tracking, and automated backup audit logs.ℹ️ API Note: CMS exposes both server-rendered views for role dashboards and REST endpoints under api/ for programmatic data exchange.🎯 Learning Outcomes🐍 Python 3.11 & Flask Architecture  •  🧩 Modular Blueprints  •  🗄️ SQLAlchemy ORM & Alembic  •  🔐 Flask-Login Auth  •  📊 PDF & Excel Generation  •  💾 Automated Backups🚀 Future Enhancements🤝 Contributing🍴 Fork the repository🌿 Create a feature branch💾 Commit your changes📤 Push your branch🔁 Submit a Pull Request🔗 Project Links📄 LicenseThis project is intended for educational and learning purposes. You are free to use, modify, and extend it for academic or personal projects.📝 Replace this section with a formal license (e.g. MIT, Apache 2.0) and add a LICENSE file if you plan to distribute this project publicly.⭐ SupportIf you found this project useful, please give it a ⭐ Star on GitHub — it encourages future improvements and helps others discover the project.
