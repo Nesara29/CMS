@@ -124,35 +124,6 @@ flowchart TD
 
 Core models: `User`, `Role`, `Student`, `Batch`, `Branch`, `ClassModel`, `Subjects`, `StaffAllocation`, `Attendance`, `CieConfig`, `CieMarks`, `CiePapers`, `BackupLog`, `Setting`, `Control`, `Maintain`.
 
-## 📸 Screenshots & Demo
-
-> 🖼️ Add your actual screenshots to `docs/screenshots/` and update the filenames below.
-
-<div align="center">
-<table>
-<tr>
-<td align="center" width="50%">
-<img src="./docs/screenshots/admin-dashboard.png" alt="Admin dashboard — PLACEHOLDER" width="100%"/>
-<br/><b>Admin Dashboard</b>
-</td>
-<td align="center" width="50%">
-<img src="./docs/screenshots/attendance.png" alt="Attendance — PLACEHOLDER" width="100%"/>
-<br/><b>Attendance Management</b>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<img src="./docs/screenshots/cie-marks.png" alt="CIE marks — PLACEHOLDER" width="100%"/>
-<br/><b>CIE Marks Entry</b>
-</td>
-<td align="center" width="50%">
-<img src="./docs/screenshots/reports.png" alt="Reports — PLACEHOLDER" width="100%"/>
-<br/><b>Report Generation</b>
-</td>
-</tr>
-</table>
-</div>
-
 ## 🚀 Installation
 
 **1. Clone the repository**
@@ -251,16 +222,6 @@ Contributions are welcome!
 4. Push your branch.
 5. Submit a Pull Request.
 
-## 👨‍💻 Developer
-
-<div align="center">
-
-| | |
-|---|---|
-| 🧑‍💻 **Name** | `NESARA` |
-| 🐙 **GitHub** | https://github.com/Nesara29 |
-
-</div>
 
 ## 🔗 Project Links
 
