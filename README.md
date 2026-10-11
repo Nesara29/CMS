@@ -249,7 +249,6 @@ If you found this project useful, please give it a **⭐ Star** on GitHub.
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1c2541,50:0b132b,100:1c2541&height=120&section=footer"/>
 
-</div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -257,30 +256,30 @@ If you found this project useful, please give it a **⭐ Star** on GitHub.
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>College Management System · 3D</title>
 <style>
-:root{--bg:#0b132b;--panel:rgba(28,37,65,.88);--fg:#F1F5F9;--mut:#9aa7c0;--ac:#5BC0BE;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html,body{height:100%;margin:0}
-body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+:root{--bg:#0b132b;--panel:rgba(28,37,65,.9);--fg:#F1F5F9;--mut:#9aa7c0;--ac:#5BC0BE}
+html,body{height:100%;margin:0;padding:0;background:var(--bg)}
+body{color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
 canvas{display:block;position:fixed;inset:0;touch-action:none}
-header{position:fixed;top:0;left:0;right:0;z-index:5;padding:calc(env(safe-area-inset-top,0px) + 20px) 22px 14px;pointer-events:none;background:linear-gradient(var(--bg),transparent)}
-h1{margin:0;padding:0;border:0;font-size:clamp(18px,3.2vw,30px);letter-spacing:.04em}
-header p{margin:6px 0 0;color:var(--mut);font-size:13px}
-#panel{position:fixed;right:18px;top:96px;width:min(340px,calc(100% - 36px));background:var(--panel);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 18px;display:none}
-#panel h2{margin:0 0 4px;font-size:17px}
-#panel .tag{color:var(--ac);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-#panel p{margin:10px 0;font-size:14px;line-height:1.5}
-#panel code{display:block;background:rgba(0,0,0,.35);padding:8px 10px;border-radius:8px;font-size:12px;overflow-x:auto;white-space:pre}
-#panel button{position:absolute;top:8px;right:10px;background:none;border:0;color:var(--mut);font-size:20px;cursor:pointer}
-#chips{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom,0px);display:flex;gap:8px;overflow-x:auto;padding:12px 18px}
-#chips button{flex:none;background:var(--panel);color:var(--fg);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer}
-#chips button.on{background:var(--ac);border-color:var(--ac);color:#0b132b}
-#hint{position:fixed;left:22px;bottom:70px;color:var(--mut);font-size:12px;pointer-events:none}
+.top{position:fixed;top:0;left:0;right:0;z-index:5;box-sizing:border-box;padding:calc(env(safe-area-inset-top,0px) + 20px) 22px 14px;pointer-events:none;background:linear-gradient(var(--bg),transparent);border:0}
+.ttl{margin:0;padding:0;border:0;font-size:clamp(18px,3.2vw,30px);font-weight:700;letter-spacing:.04em;line-height:1.2}
+.sub{margin:6px 0 0;color:var(--mut);font-size:13px}
+.panel{position:fixed;right:18px;top:100px;z-index:6;box-sizing:border-box;width:min(340px,calc(100% - 36px));background:var(--panel);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 18px;display:none}
+.panel .tag{color:var(--ac);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.panel .name{margin:4px 0 0;font-size:17px;font-weight:700}
+.panel .desc{margin:10px 0;font-size:14px;line-height:1.5}
+.panel .run{background:rgba(0,0,0,.35);padding:8px 10px;border-radius:8px;font:12px/1.5 ui-monospace,Consolas,monospace;overflow-x:auto;white-space:pre}
+.panel .close{position:absolute;top:6px;right:10px;background:none;border:0;color:var(--mut);font-size:22px;cursor:pointer}
+.chips{position:fixed;left:0;right:0;bottom:0;z-index:5;box-sizing:border-box;display:flex;gap:8px;overflow-x:auto;padding:12px 18px calc(env(safe-area-inset-bottom,0px) + 12px)}
+.chips button{flex:none;background:var(--panel);color:var(--fg);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer}
+.chips button.on{background:var(--ac);border-color:var(--ac);color:#0b132b}
+.hint{position:fixed;left:22px;bottom:70px;color:var(--mut);font-size:12px;pointer-events:none}
 </style>
 </head>
 <body>
-<header><h1>COLLEGE MANAGEMENT SYSTEM</h1><p>Flask · SQLAlchemy · MySQL · Role-Based Access — drag to orbit, click a node</p></header>
-<div id="panel"><button id="x" aria-label="Close">×</button><div class="tag" id="pt"></div><h2 id="pn"></h2><p id="pd"></p><code id="pr"></code></div>
-<div id="hint">Drag to rotate · Click a module</div>
-<div id="chips"></div>
+<div class="top"><div class="ttl">COLLEGE MANAGEMENT SYSTEM</div><div class="sub">Flask · SQLAlchemy · MySQL · Role-Based Access — drag to orbit, click a node</div></div>
+<div class="panel" id="panel"><button class="close" id="x" aria-label="Close">×</button><div class="tag" id="pt"></div><div class="name" id="pn"></div><div class="desc" id="pd"></div><div class="run" id="pr"></div></div>
+<div class="hint">Drag to rotate · Click a module</div>
+<div class="chips" id="chips"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const C={access:0xFF4D6D,role:0x5BC0BE,acad:0xF0B429,data:0x7F5AF0,report:0x2CB67D};
@@ -311,7 +310,7 @@ const stars=new THREE.Points(sg,new THREE.PointsMaterial({color:0xF1F5F9,size:.0
 const G=new THREE.Group();S.add(G);
 const nodes=[];
 function label(t){const c=document.createElement('canvas');c.width=256;c.height=64;const x=c.getContext('2d');x.font='600 32px system-ui,sans-serif';x.fillStyle='#F1F5F9';x.textAlign='center';x.textBaseline='middle';x.fillText(t,128,34);
-const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true}));sp.scale.set(2.4,.6,1);return sp}
+const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true}));s.scale.set(2.4,.6,1);return s}
 D.forEach((e,i)=>{
  const a=i/D.length*Math.PI*2,r=6.5;
  const m=new THREE.Mesh(new THREE.IcosahedronGeometry(.7,1),new THREE.MeshStandardMaterial({color:C[e.k],roughness:.35,metalness:.3,emissive:C[e.k],emissiveIntensity:.18}));
@@ -321,7 +320,8 @@ D.forEach((e,i)=>{
  m.userData={i,base:m.position.y,s:1};G.add(m);nodes.push(m);
 });
 const chips=document.getElementById('chips'),panel=document.getElementById('panel');
-let sel=-1;
+const pt=document.getElementById('pt'),pn=document.getElementById('pn'),pd=document.getElementById('pd'),pr=document.getElementById('pr');
+let sel=-1,drag=false,moved=0,lx=0,vel=0,tgt=0,focus=false,mx=0,my=0;
 D.forEach((e,i)=>{const b=document.createElement('button');b.textContent=e.id;b.onclick=()=>pick(i);chips.appendChild(b)});
 document.getElementById('x').onclick=()=>pick(-1);
 function pick(i){
@@ -331,11 +331,10 @@ function pick(i){
  const m=nodes[i];tgt=-Math.atan2(m.position.z,m.position.x)+Math.PI/2;
  let d=tgt-G.rotation.y;d=Math.atan2(Math.sin(d),Math.cos(d));tgt=G.rotation.y+d;focus=true;
 }
-let drag=false,moved=0,lx=0,vel=0,tgt=0,focus=false,mx=0,my=0;
 const ray=new THREE.Raycaster(),ptr=new THREE.Vector2();
 R.domElement.addEventListener('pointerdown',e=>{drag=true;moved=0;lx=e.clientX;focus=false});
 addEventListener('pointerup',e=>{
- if(drag&&moved<5){
+ if(drag&&moved<5&&e.target===R.domElement){
   ptr.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);ray.setFromCamera(ptr,cam);
   const h=ray.intersectObjects(nodes,false)[0];pick(h?h.object.userData.i:-1);
  }drag=false});
